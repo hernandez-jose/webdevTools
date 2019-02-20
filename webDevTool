@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# makes a LEMP stack server in verbose
+serverName=$1
+lastDir=`pwd`
+
+apt-get update -y
+apt-get install nginx openssh-server -y
+
+ufw enable
+ufw allow 'Nginx HTTP'
+
+apt-get install mysql-server -y
+
+mysql_secure_installation
+
+add-apt-repository universe
+
+apt-get install php-fpm php-mysql -y
+
+# ssh port
+ufw allow 22
+
+# server block setup | static files are read by default
+# this bit of code add php processing
+rm /etc/nginx/sites-available/default
+cp ./src/serverConfig /etc/nginx/sites-available/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+
+# end of LEMP stack
+
+# node.js
+
+apt-get install nodejs -y
+apt-get install npm -y
+
+apt-get install composer -y
+
+# composer install
+apt-get install curl php-cli php-mbstring git unzip php7.2-zip -y
+cd ~
+curl -sS https://getcomposer.org/installer -o composer-setup.php
+php composer-setup.php --install-dir=/usr/bin --filename=composer
+#change owner of file from composer
+chown -R $USER ./composer
+
+# install laravel
+composer global require laravel/installer
+# laravel gloabal command
+ln -s ~/.composer/vendor/laravel/installer/laravel /usr/bin
+
+# phpmyadmin
+apt-get install phpmyadmin
+
+# add server block for phpmyadmin
+cp $lastDir/src/phpmyadmin /etc/nginx/sites-available/
+ln -s /etc/nginx/sites-available/phpmyadmin /etc/nginx/sites-enabled/
+
+# makes phpmyadmin available over internet
+ln -s /usr/share/phpmyadmin/ /var/www/

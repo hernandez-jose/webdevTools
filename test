@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#create a virtual host
+vHost=$1
+
+sed -i "10c\\\tserver_name "$vHost";" ~/Desktop/src/virtualHostConfig
+sed -i "12c\\\troot /var/www/"$vHost"/public;" ~/Desktop/src/virtualHostConfig
+
+mkdir /var/www/$vHost
+cp ~/Desktop/src/virtualHostConfig /etc/nginx/sites-available/$vHost
+
+# link server block
+ln -s /etc/nginx/sites-available/$vHost /etc/nginx/sites-enabled/
+
+systemctl reload nginx
