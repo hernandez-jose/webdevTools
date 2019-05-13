@@ -61,3 +61,14 @@ ln -s /usr/share/phpmyadmin/ /var/www/
 
 # change ownership of www dir
 chown -R $USER www
+
+# certbot
+sudo apt-get update -y
+apt-get install software-properties-common -y
+add-apt-repository universe -y
+add-apt-repository ppa:certbot/certbot -y
+apt-get update -y
+apt-get install certbot python-certbot-nginx -y
+
+# allow https trafic
+ufw allow 'Nginx FULL'
