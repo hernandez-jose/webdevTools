@@ -6,6 +6,8 @@ lastDir=`pwd`
 
 apt-get update -y
 apt-get install nginx openssh-server -y
+apt-get install sendmail -y
+apt-get install expect -y
 
 ufw enable
 ufw allow 'Nginx HTTP'
