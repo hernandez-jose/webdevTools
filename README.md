@@ -15,7 +15,7 @@ sudo webDevTools [server name]
 ```
 ```
 Response
-
+--------
 {
     "jwt": "eyJhbiOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyI"
 }
