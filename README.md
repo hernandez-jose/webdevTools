@@ -4,20 +4,20 @@ Used for installing petinode webapp it includes LEMP stack with laravel
 sudo webDevTools [server name]
 
 
-#### Authentication:
+## API route documentation
+ **Authentication:**
 `#POST /login` Login a user with JSON Web Tokens
-
-`Request`
-```sh
-docker run -d -p 8000:8080
+```
+Request in JSON
 {
-    ss
+    "email": "jose@wandertiki.com", // required
+	"password": "value"             // required
 }
 ```
 ```
-Response
-----------------
+Response in JSON
 {
     "jwt": "eyJhbiOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyI"
 }
 ```
+`#POST /logout` Logout
