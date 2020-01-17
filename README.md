@@ -9,6 +9,7 @@ sudo webDevTools [server name]
 
 `Request`
 ```sh
+docker run -d -p 8000:8080
 {
     ss
 }
