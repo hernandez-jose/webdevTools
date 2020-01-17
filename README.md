@@ -5,7 +5,7 @@ sudo webDevTools [server name]
 
 
 ## API route documentation
- **Authentication:**
+### Authentication:
 `#POST /login` Login a user with JSON Web Tokens
 ```
 Request in JSON
