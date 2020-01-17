@@ -4,12 +4,18 @@ Used for installing petinode webapp it includes LEMP stack with laravel
 sudo webDevTools [server name]
 
 
-### Authentication:
-Login a user with JSON Web Tokens
-
+#### Authentication:
 `#POST /login`
+Login a user with JSON Web Tokens
 ```
+Request
 {
-	ss
+    ss
+}
+```
+```
+Response
+{
+    "jwt": "eyJhbiOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyI"
 }
 ```
