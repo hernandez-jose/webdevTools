@@ -7,7 +7,7 @@ sudo webDevTools [server name]
 #### Authentication:
 `#POST /login` Login a user with JSON Web Tokens
 `Request`
-```
+Request```
 {
     ss
 }
