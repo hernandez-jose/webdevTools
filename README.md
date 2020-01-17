@@ -8,7 +8,6 @@ sudo webDevTools [server name]
 Login a user with JSON Web Tokens
 
 `#POST /login`
-
 ```
 {
 	ss
